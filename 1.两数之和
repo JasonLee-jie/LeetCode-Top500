@@ -1,0 +1,18 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // 实例化 Hash''
+        // n1 + n2 = taget (n1 n2 in nums)
+        Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; ++i) {
+            // 判断 target - nums[i] 是否存在 hashtable中
+            // {key1:value1}              {7:1}
+            if (hashtable.containsKey(target - nums[i])) {
+                
+                return new int[]{hashtable.get(target - nums[i]), i};
+            }
+            
+            hashtable.put(nums[i], i);
+        }
+        return new int[0];
+    }
+}//哈希表
