@@ -1,0 +1,27 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+ //递归版本   重在反向工作
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }//特殊情况   只有一个Node 那就是head 那么就返回它
+
+        ListNode p = reverseList(head.next);
+
+        head.next.next = head;
+        head.next = null;
+        
+        return p;
+    }
+}
+
